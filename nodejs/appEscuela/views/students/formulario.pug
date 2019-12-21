@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h2 Agrega un nuevo Estudiante
+    form(method="POST", action="/students/create")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="name")
+        .form-group
+            label Apellidos
+            input.form-control(type="text", name="surname")
+        .form-group
+            label Email
+            input.form-control(type="text", name="email")
+        .form-group
+            label Curso
+            input.form-control(type="text", name="course")
+        .form-group
+            label Nota Media
+            input.form-control(type="text", name="average_grade")
+        input.btn.btn-block.btn-info(type="submit", value="Enviar")

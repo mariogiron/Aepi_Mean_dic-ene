@@ -1,14 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const studentsRouter = require('./routes/students');
+const testRouter = require('./routes/test');
 
-var app = express();
+const app = express();
+
+require('dotenv').config();
+
+require('./db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,15 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-  console.log('Pasa por el middleware');
-  // res.send('Se terminó');
-  req.currentDate = new Date();
-  next();
-});
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/students', studentsRouter);
 app.use('/test', testRouter);
 
 // catch 404 and forward to error handler

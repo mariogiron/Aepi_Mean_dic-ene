@@ -1,10 +1,3 @@
-mixin lista(pArr)
-  ul
-    each value in pArr
-      li= value
-    else
-      li No hay ningún elemento
-
 doctype html
 html
   head
@@ -12,7 +5,4 @@ html
     link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    include includes/header.pug
-    block contenido
-    block footer
-      footer Pie de páginal Principal
+    block content

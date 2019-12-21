@@ -17,4 +17,15 @@ router.get('/new', (req, res) => {
   res.send('User new');
 });
 
+router.get('/:userId', (req, res) => {
+  console.log(req.params);
+  console.log(req.query);
+  res.send('FIN');
+});
+
+router.post('/', (req, res) => {
+  console.log(req.body.nombre);
+  res.send('FIN');
+})
+
 module.exports = router;

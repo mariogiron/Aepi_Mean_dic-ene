@@ -1,0 +1,25 @@
+extends ../layout.pug
+
+block content
+    h2 Lista de Estudiantes
+    table.table
+        thead
+            tr
+                th Nombre
+                th Apellidos
+                th Nombre Completo
+                th Email
+                th Curso
+                th Nota Media
+                th Acciones
+        tbody            
+            each student in arrStudents
+                tr
+                    td= student.name
+                    td #{student.surname}
+                    td= student.nombre_completo
+                    td= student.email
+                    td= student.course
+                    td= student.average_grade
+                    td
+                        a.btn.btn-sm.btn-primary(href="/students/"+student.id) Detalle

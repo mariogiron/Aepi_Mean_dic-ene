@@ -1,0 +1,28 @@
+extends layout.pug
+
+block contenido
+    h2 Cabecera de la página
+    div 
+        p#primero Contenido del párrafo
+        a.rojo(href="www.google.com", targe="_blank") Google.com
+    .segundo
+        // Comentario aparece en HTML
+        //- Comentario 2
+        p= nombre + ' ' + apellidos
+        p #{nombre} #{apellidos}
+    .tercero
+        ul
+            - for(let i = 0; i < animales.length; i++)
+                li= animales[i]
+        ul
+            each animal in animales
+                li= animal
+    .cuarto
+        +lista([1,2,3,4,5])
+        +lista(animales)
+        +lista([])
+        | Hola qué pasa
+    script.
+        alert('Ejecuta código JS');
+block footer
+    footer Pié de página para TEST
