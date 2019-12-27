@@ -20,7 +20,11 @@ studentSchema.virtual('nombre_completo').set(function (newValue) {
 });
 
 studentSchema.methods.mismoCurso = function (callback) {
-    this.model('student').find({ course: this.course }, callback)
+    this.model('student').find({ course: this.course }, callback);
+}
+
+studentSchema.statics.noAprobados = function (callback) {
+    this.model('student').find({ average_grade: { $lt: 5 } }, callback);
 }
 
 module.exports = mongoose.model('student', studentSchema);
@@ -34,3 +38,6 @@ module.exports = mongoose.model('student', studentSchema);
 // stu.mismoCurso((err, students) => {
 //     console.log(students);
 // });
+
+
+// SELECT * FROM students WHERE average_grade < 5

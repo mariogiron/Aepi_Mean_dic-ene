@@ -20,6 +20,12 @@ router.get('/aprobados', (req, res) => {
     })
 });
 
+router.get('/noaprobados', (req, res) => {
+    Student.noAprobados((err, students) => {
+        res.render('students/list', { arrStudents: students });
+    });
+});
+
 router.get('/mismos', (req, res) => {
     let stu = new Student();
     stu.course = 'HTML CSS';
