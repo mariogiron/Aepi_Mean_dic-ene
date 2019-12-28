@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const literales = require('../literales');
 const Schema = mongoose.Schema;
 
 let studentSchema = new Schema({
@@ -20,14 +21,14 @@ studentSchema.virtual('nombre_completo').set(function (newValue) {
 });
 
 studentSchema.methods.mismoCurso = function (callback) {
-    this.model('student').find({ course: this.course }, callback);
+    this.model(literales.STUDENT_MODEL).find({ course: this.course }, callback);
 }
 
 studentSchema.statics.noAprobados = function (callback) {
-    this.model('student').find({ average_grade: { $lt: 5 } }, callback);
+    this.model(literales.STUDENT_MODEL).find({ average_grade: { $lt: 5 } }, callback);
 }
 
-module.exports = mongoose.model('student', studentSchema);
+module.exports = mongoose.model(literales.STUDENT_MODEL, studentSchema);
 
 // function mismoCurso(callback) {
 //     this.model('Student').find({ course: this.course }, callback)

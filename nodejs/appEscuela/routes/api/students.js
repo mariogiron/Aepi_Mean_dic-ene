@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const Student = require('../../models/student');
+const middlewares = require('../middlewares');
+
+router.use(middlewares.checkToken);
 
 // http://localhost:3000/api/students
 router.get('/', (req, res) => {

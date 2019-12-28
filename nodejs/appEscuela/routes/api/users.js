@@ -3,6 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jwt-simple');
+const moment = require('moment');
 
 const User = require('../../models/user');
 
@@ -68,9 +69,11 @@ function nifValidator(dni) {
 
 function createToken(user) {
     const obj = {
-        userId: user._id
+        userId: user._id,
+        fechaCreacion: moment().unix(),
+        fechaExpiracion: moment().add(10, 'minutes').unix()
     }
-    return jwt.encode(obj, 'en un lugar de la mancha');
+    return jwt.encode(obj, process.env.SECRET_KEY);
 }
 
 module.exports = router;

@@ -1,0 +1,1 @@
+exports.STUDENT_MODEL = 'student';
