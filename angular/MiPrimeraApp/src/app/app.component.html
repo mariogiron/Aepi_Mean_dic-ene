@@ -1,0 +1,14 @@
+<h1>HOLA MUNDO</h1>
+
+<p [id]="identificador">{{ title }}</p>
+<p>{{ 4+5 }}</p>
+<p>{{ mostrarSaludo() }}</p>
+
+<button (click)="pulsaBoton($event, 4)">PULSA!!</button>
+<select (change)="eligeColor($event)">
+  <option value="rojo">Rojo</option>
+  <option value="verde">Verde</option>
+  <option value="amarillo">Amarillo</option>
+</select>
+
+<app-saludo></app-saludo>

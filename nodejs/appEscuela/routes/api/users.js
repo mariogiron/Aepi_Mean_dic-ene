@@ -32,13 +32,13 @@ router.post('/register', [
 router.post('/login', (req, res) => {
     User.findOne({ username: req.body.username }, (err, user) => {
         if (!user) {
-            return res.json({ error: 'Error en usuario y/o password 1' })
+            return res.json({ error: 'Error en usuario y/o password' })
         }
         const iguales = bcrypt.compareSync(req.body.password, user.password);
         if (iguales) {
             res.json({ success: createToken(user) });
         } else {
-            res.json({ error: 'Error en usuario y/o password 2' })
+            res.json({ error: 'Error en usuario y/o password' })
         }
     });
 });
