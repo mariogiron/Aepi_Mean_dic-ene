@@ -1,0 +1,13 @@
+<h1>Cabecera de mi página</h1>
+<h2>Subtítulo de mi página</h2>
+<ul>
+  <li><a [routerLink]="['info']">Info</a></li>
+  <li><a [routerLink]="['about']">About</a></li>
+  <li><a [routerLink]="['saludo']">Saludo</a></li>
+</ul>
+<router-outlet></router-outlet>
+<div>
+  <button (click)="handleClick('info')">Info</button>
+  <button (click)="handleClick('about')">About</button>
+  <button (click)="handleClick('saludo')">Saludo</button>
+</div>
