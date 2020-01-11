@@ -1,0 +1,8 @@
+<p>Num Paginas: {{ numPaginas }}</p>
+<button (click)="cambioPagina(false)" [disabled]="currentPage == 1">Anterior</button>
+<button (click)="cambioPagina(true)" [disabled]="currentPage == numPaginas">Siguiente</button>
+<ul *ngFor="let planeta of arrPlanetas">
+    <li>{{ planeta.name }}</li>
+    <li>{{ planeta.population }}</li>
+    <li>{{ planeta.climate }}</li>
+</ul>
