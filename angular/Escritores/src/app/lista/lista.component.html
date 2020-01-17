@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-12">
+        <select class="form-control" (change)="cambioPais($event)">
+            <option value="españa">España</option>
+            <option value="reino unido">Reino Unido</option>
+            <option value="canadá">Canadá</option>
+            <option value="chile">Chile</option>
+        </select>
+    </div>
+    <div class="col-4" *ngFor="let escritor of listaEscritores" [routerLink]="['/escritores', escritor.id]">
+        <img [src]="escritor.imagen" alt="" class="img img-fluid" />
+        <p>{{escritor.nombre}} {{escritor.apellidos}}</p>
+    </div>
+</div>

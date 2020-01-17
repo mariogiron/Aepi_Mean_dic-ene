@@ -1,1 +1,16 @@
-<p>lista-students works!</p>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Curso</th>
+        <th>Nota Media</th>
+    </tr>
+    <tr *ngFor="let student of arrStudents">
+        <td>{{ student.name }}</td>
+        <td>{{ student.surname }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.average_grade }}</td>
+    </tr>
+</table>

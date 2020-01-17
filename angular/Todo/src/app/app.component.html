@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 col-12">
+      <app-formulario (tareaEnviada)="handleTareaEnviada($event)"></app-formulario>
+    </div>
+    <div class="col-md-6 col-12">
+      <app-lista [tareas]="arrTareas"></app-lista>
+    </div>
+  </div>
+</div>

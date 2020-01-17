@@ -74,7 +74,7 @@ function createToken(user) {
     const obj = {
         userId: user._id,
         fechaCreacion: moment().unix(),
-        fechaExpiracion: moment().add(10, 'minutes').unix()
+        fechaExpiracion: moment().add(10, 'hours').unix()
     }
     return jwt.encode(obj, process.env.SECRET_KEY);
 }

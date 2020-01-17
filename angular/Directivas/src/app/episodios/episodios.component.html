@@ -1,0 +1,19 @@
+<table *ngIf="episodios.length > 0">
+    <tr>
+        <th>Índice</th>
+        <th>Título</th>
+        <th>Director</th>
+    </tr>
+    <tr *ngFor="let episodio of episodios; let indice = index; let par = even; let impar = odd; let primero = first; let ultimo = last"
+        [ngClass]="{ clasePar: par, claseImpar: !par }" [class]="clases[indice]">
+        <td>{{ indice }}</td>
+        <td subrayado>{{ episodio.title }}</td>
+        <td>{{ episodio.director }}</td>
+        <td>
+            {{ par }}
+            {{ impar }}
+            {{ primero }}
+            {{ ultimo }}
+        </td>
+    </tr>
+</table>
