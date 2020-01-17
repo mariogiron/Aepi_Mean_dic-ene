@@ -8,14 +8,16 @@ const moment = require('moment');
 const User = require('../../models/user');
 
 router.post('/register', [
-    check('username', 'El campo username es obligatorio').exists().notEmpty(),
-    check('password', 'El campo password es obligatorio').exists(),
-    check('email', 'El email debe estar correcto').isEmail(),
-    check('age', 'Debe ser mayor de edad').custom((value) => {
-        return value >= 18;
-    }),
-    check('dni', 'El dni debe estar correcto').custom(nifValidator)
+    // check('username', 'El campo username es obligatorio').exists().notEmpty(),
+    // check('password', 'El campo password es obligatorio').exists(),
+    // check('email', 'El email debe estar correcto').isEmail(),
+    // check('age', 'Debe ser mayor de edad').custom((value) => {
+    // return value >= 18;
+    // }),
+    // check('dni', 'El dni debe estar correcto').custom(nifValidator)
 ], (req, res) => {
+    console.log(req.body);
+
     const errores = validationResult(req);
 
     if (!errores.isEmpty()) {
@@ -25,6 +27,7 @@ router.post('/register', [
     req.body.password = bcrypt.hashSync(req.body.password, 10);
 
     User.create(req.body, (err, user) => {
+        if (err) res.json({ error: err })
         res.json(user);
     });
 });

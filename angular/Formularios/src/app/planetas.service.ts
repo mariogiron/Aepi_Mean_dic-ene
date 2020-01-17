@@ -8,8 +8,8 @@ export class PlanetasService {
 
   constructor(private http: HttpClient) { }
 
-  getPlanetas(page) {
-    return this.http.get(`https://swapi.co/api/planets/?format=json&page=${page}`).toPromise();
+  getPlanetas(page): Promise<any> {
+    return this.http.get<any>(`https://swapi.co/api/planets/?format=json&page=${page}`).toPromise();
   }
 
 }

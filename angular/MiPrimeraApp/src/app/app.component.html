@@ -1,4 +1,4 @@
-<h1>HOLA MUNDO</h1>
+<!-- <h1>HOLA MUNDO</h1>
 
 <p [id]="identificador">{{ title }}</p>
 <p>{{ 4+5 }}</p>
@@ -11,4 +11,25 @@
   <option value="amarillo">Amarillo</option>
 </select>
 
-<app-saludo></app-saludo>
+<app-saludo texto="Qué pasa"></app-saludo>
+<app-saludo texto="Otro saludito"></app-saludo>
+<app-saludo [texto]="identificador"></app-saludo>
+
+<cronometro inicio="12" (finalizado)="cronoFinaliza($event)"></cronometro>
+<cronometro inicio="5"></cronometro>
+<cronometro inicio="8"></cronometro> -->
+
+<input type="text" [(ngModel)]="campoTexto" />
+<p>{{ campoTexto }}</p>
+
+<div>
+  Nombre:
+  <input type="text" [(ngModel)]="persona.nombre">
+  <br>
+  Apellidos:
+  <input type="text" [(ngModel)]="persona.apellidos">
+  <br>
+  Dirección
+  <input type="text" [(ngModel)]="persona.direccion">
+</div>
+{{ persona | json }}

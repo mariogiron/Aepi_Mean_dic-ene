@@ -9,10 +9,16 @@ export class AppComponent {
 
   title = 'MiPrimeraApp';
   identificador: string;
+  campoTexto: string;
+
+  persona: any;
 
   constructor() {
+    this.campoTexto = 'valor inicial';
     this.identificador = 'valorIdentificador';
     setTimeout(() => this.title = 'otro valor', 3000);
+
+    this.persona = {};
   }
 
   mostrarSaludo(): string {
@@ -26,6 +32,10 @@ export class AppComponent {
 
   eligeColor($event) {
     this.title = $event.target.value;
+  }
+
+  cronoFinaliza($event) {
+    console.log($event);
   }
 
 }

@@ -1,3 +1,21 @@
-<p [ngStyle]="estilosParrafo">Lorem fistrum ese que llega no te digo trigo por no llamarte Rodrigor llevame al sircoo se
+<input type="text" [(ngModel)]="estilosParrafo.color">
+<!--<select [(ngModel)]="estilosParrafo.backgroundColor">
+  <option value="red">Rojo</option>
+  <option value="green">Verde</option>
+  <option value="yellow">Amarillo</option>
+  <option value="blue">Azul</option>
+</select>-->
+<select (change)="cambiaColor($event)">
+  <option value="red">Rojo</option>
+  <option value="green">Verde</option>
+  <option value="yellow">Amarillo</option>
+  <option value="blue">Azul</option>
+</select>
+<p [ngStyle]="estilosParrafo" subrayado>Lorem fistrum ese que llega no te digo trigo por no llamarte Rodrigor
+  llevame
+  al sircoo se
   calle ustée. Amatomaa jarl
   va usté muy cargadoo qué dise usteer a gramenawer no te digo trigo por no llamarte Rodrigor.</p>
+
+<!--<app-semaforo></app-semaforo>-->
+<app-episodios></app-episodios>

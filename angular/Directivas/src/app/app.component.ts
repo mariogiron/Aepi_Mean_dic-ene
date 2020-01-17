@@ -23,4 +23,9 @@ export class AppComponent implements OnInit {
     }, 3000);
   }
 
+  cambiaColor($event) {
+    console.log($event.target);
+    this.estilosParrafo.backgroundColor = $event.target.value;
+  }
+
 }
