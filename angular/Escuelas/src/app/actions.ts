@@ -1,0 +1,2 @@
+export const INCREMENTAR = 'INCREMENTAR';
+export const DECREMENTAR = 'DECREMENTAR';
